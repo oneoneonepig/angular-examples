@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	_ "github.com/denisenkom/go-mssqldb"
-	"html/template"
 	"log"
 	"net/http"
 )
@@ -29,6 +28,7 @@ func OptionForCORS(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
+/*
 func Homepage(w http.ResponseWriter, r *http.Request) {
 	title := "SQL Connection Test"
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -38,6 +38,7 @@ func Homepage(w http.ResponseWriter, r *http.Request) {
 	}
 	t.Execute(w, title)
 }
+*/
 
 func CheckDB(w http.ResponseWriter, r *http.Request) {
 	// Set CORS headers

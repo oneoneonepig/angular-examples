@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  ipAddress;
-  port;
-  username;
-  password;
+	data = {inputIpAddress: '', inputUsername: '', inputPassword: '', inputTimeout: 3}
+	testResult;
 
-  /*    function checkSqlConnection(ipAddress: string, username: string, password: string) {
-    return 'Connecting to ' + ipAddress + ' with username ' + username;
-    }*/
+	constructor(
+		private http: HttpClient
+	){}
+	
+	ngOnInit(){
+		
+	}
+
+	connTest(data: any) {
+		this.http.post('/check', data)
+			.subscribe(
+				(response) => { console.log(response); this.testResult = response; }
+			);
+	}
 }
