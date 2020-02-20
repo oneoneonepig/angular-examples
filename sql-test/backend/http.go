@@ -10,13 +10,11 @@ func main() {
 	// Create router
 	r := mux.NewRouter()
 
-	r.HandleFunc("/checkdb", checkdb).Methods(http.MethodGet)
+	r.HandleFunc("/", OptionForCORS).Methods(http.MethodOptions)
+	r.HandleFunc("/", Homepage).Methods(http.MethodGet)
+	r.HandleFunc("/check", OptionForCORS).Methods(http.MethodOptions)
+	r.HandleFunc("/check", CheckDB).Methods(http.MethodPost)
 
 	// Start serving HTTP
-	log.Fatal(http.ListenAndServe(":8888", r))
-}
-
-type Response struct {
-	Message string `json:"message"`
-	Status  bool   `json:"status"`
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
