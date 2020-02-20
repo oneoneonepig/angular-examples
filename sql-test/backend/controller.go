@@ -28,8 +28,8 @@ func checkdb(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 	} else {
 		response := Response{
-			Message: "NOK",
-			Status:  false,
+			Message: "OK",
+			Status:  true,
 		}
 		json.NewEncoder(w).Encode(response)
 	}
