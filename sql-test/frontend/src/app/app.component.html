@@ -13,6 +13,7 @@
     <form>
       <div class="form-group">
         <label for="inputIpAddress">IP Address</label>
+        <!-- All forms with ngModel must have the property "name" -->
         <input type="text" name="ipAddress" class="form-control" id="ipAddress" [(ngModel)]="data.inputIpAddress" placeholder="">
       </div>
       <div class="form-group">
